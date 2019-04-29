@@ -14,14 +14,14 @@ namespace gpmp2 {
 
 /* ************************************************************************** */
 Arm::Arm(size_t dof, const Vector& a, const Vector& alpha, const Vector& d,
-    const gtsam::Pose3& base_pose, boost::optional<const Vector&> theta_bias) :
-    Base(dof, dof), a_(a), alpha_(alpha), d_(d), base_pose_(base_pose) {
+    const gtsam::Pose3& base_pose, const Vector& theta_bias) :
+    Base(dof, dof), a_(a), alpha_(alpha), d_(d), base_pose_(base_pose), theta_bias_(theta_bias) {
 
   // theta bias
-  if (theta_bias)
-    theta_bias_ = *theta_bias;
-  else
-    theta_bias_ = Vector::Zero(dof);
+  // if (theta_bias)
+  // theta_bias_ = *theta_bias;
+  // else
+  //   theta_bias_ = Vector::Zero(dof);
 
   // DH transformation for each link, without theta matrix
   // Spong06book, page. 69, eq. (3.10)
@@ -41,6 +41,8 @@ void Arm::forwardKinematics(
     boost::optional<std::vector<Matrix>&> J_jvx_jv) const {
 
   using namespace std;
+
+  std::cout<<"Using arm::fk" <<std::endl;
 
   // space for output
   jpx.resize(dof());

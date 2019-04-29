@@ -30,7 +30,7 @@
 #include <gpmp2/gp/GaussianProcessPriorPose2Vector.h>
 
 #include <gtsam/nonlinear/ISAM2.h>
-#include <gtsam/nonlinear/ISAM2Result.h>
+// #include <gtsam/nonlinear/ISAM2Result.h>
 #include <gtsam/nonlinear/Values.h>
 #include <gtsam/nonlinear/NonlinearFactorGraph.h>
 #include <gtsam/linear/NoiseModel.h>
