@@ -42,8 +42,6 @@ void Arm::forwardKinematics(
 
   using namespace std;
 
-  std::cout<<"Using arm::fk" <<std::endl;
-
   // space for output
   jpx.resize(dof());
   if (jvx) jvx->resize(dof());
